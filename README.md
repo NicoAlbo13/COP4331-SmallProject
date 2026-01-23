@@ -1,2 +1,3 @@
-## Small Project COP4331 - Spring 2026
+## COP4331 Small Project  - Group 3
+### Spring 2026
 
