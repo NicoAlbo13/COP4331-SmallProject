@@ -1,0 +1,25 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files (add specific ones for your IDE)
+.vscode/
+.idea/
+
+# Build artifacts & Logs
+build/
+dist/
+*.log
+
+# Dependencies (Language/Framework specific, e.g., node_modules, venv)
+# node_modules/
+# venv/
+
+# Compiled files
+*.class
+*.o
+*.exe
+
+# Other common files
+*.tmp
+*.bak
