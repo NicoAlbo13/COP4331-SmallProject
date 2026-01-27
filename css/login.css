@@ -226,3 +226,7 @@ input{
 
 }
 
+#signUpResult, #loginResult{
+    padding-top: 25px;
+    color: red;
+}
