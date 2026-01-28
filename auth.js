@@ -8,7 +8,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         
         // read the values from the input fields and store them in an object
         const data = {
-            username: document.getElementById("logInUser").value,
+            login: document.getElementById("logInUser").value,
             password: document.getElementById("logIn_pass").value
         };
 
