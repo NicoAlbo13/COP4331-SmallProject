@@ -8,8 +8,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         
         // read the values from the input fields and store them in an object
         const data = {
-            login:document.getElementById("logInUser").value,
-            password:document.getElementById("logIn_pass").value
+            login: document.getElementById("logInUser").value,
+            password: document.getElementById("logIn_pass").value
         };
 
         // calling the login API endpoint
@@ -42,10 +42,10 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
 
         //
         const data = {
-            first:document.getElementById("signUpFirstName").value,
-            last:document.getElementById("signUpLastName").value,
-            login:document.getElementById("signUpUser").value,
-            password:document.getElementById("signUp_pass").value,
+            first: document.getElementById("signUpFirstName").value,
+            last: document.getElementById("signUpLastName").value,
+            login: document.getElementById("signUpUser").value,
+            password: document.getElementById("signUp_pass").value,
         };
 
         const res = await fetch("LAMPAPI/register.php", {
