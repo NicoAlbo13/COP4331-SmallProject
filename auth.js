@@ -21,10 +21,10 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
         const result = await res.json();
 
-        if(result.success){
+        if(result.error ===""){
             window.location.href = "account.html";
         }else{
-            document.getElementById("loginResult").innerHTML = result.message;
+            document.getElementById("loginResult").innerHTML = result.error;
         }
         
     } catch (error) {
@@ -56,10 +56,10 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
 
         const result = await res.json();
 
-        if(result.success){
+        if(result.error ===""){
             window.location.href = "account.html";
         }else{
-            document.getElementById("signUpResult").innerHTML = result.message;
+            document.getElementById("signUpResult").innerHTML = result.error;
         }
         
     } catch (error) {

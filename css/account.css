@@ -1,9 +1,10 @@
 .account-conatiner{
     background: #d7b5fd;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     gap: 20px;
+    padding: 10px;
     font-family: sans-serif;
     width: 70%;
     
@@ -49,7 +50,8 @@ button{
 }
 
 .actionContainer{
-    
+    display: flex;
+    gap: 15px;
 }
 
 
