@@ -1,6 +1,9 @@
 const current_name = sessionStorage.getItem("name");
 const userID = sessionStorage.getItem("userID");
 
+
+
+
 // Debugging to check if info is being pulled
 
 //console.log("Debug - Name in storage:", current_name);
@@ -25,3 +28,11 @@ else{
 }
 
 */
+
+document.getElementById("loggingOut").addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    sessionStorage.clear();
+
+    window.location.href = 'index.html';
+});
