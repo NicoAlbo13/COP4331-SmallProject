@@ -1,4 +1,8 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     $inData = getRequestInfo();
 
     $searchResults = "";
@@ -15,7 +19,7 @@
         $user = $inData["userID"];
         $stmt = $conn->prepare("SELECT * FROM Contacts where userID=? AND (firstName like ? OR lastName like ? OR email like ? OR phone like ?)"); //TODO make sure the field names are right
         $stmt->bind_param("issss", $user, $search, $search, $search, $search);
-        
+
         //TODO bind parameters?
 
         $stmt->execute();
