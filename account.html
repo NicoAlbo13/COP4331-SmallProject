@@ -7,33 +7,84 @@
     <title>My Account</title>
 </head>
 <body>
-    <div class="account-conatiner">
+    
+    <div class="account-container">
 
-        
-        <div class="searchContainer">
-            <img class="searchIcon" src="assets/search_icon.svg" alt="">
-            
-            <input type="text" id="search" placeholder="Search">
-        </div>
+        <div class="header">
 
-        <div class="actionContainer">
-            <button>Edit</button>
-            <button>Delete</button>
-            <button>Add</button>
-        </div>
+            <div class="my_account">
 
-        <div class="accountContainer">
-            <img class="accountIcon" src="assets/account_icon.svg" alt="">
-            <span id="accountName"></span>
-            <div class="dropdown">
-                <img src="assets/menu_icon.svg" alt="">
-                <div class="dropdown_logout">
-                    <p id="loggingOut">Logout</p>
+                <p id="accountName"></p>
+
+                <img src="assets/account_icon.svg" alt="">
+
+                <div class="dropdown">
+
+                    <img src="assets/menu_icon.svg" alt="">
+
+                    <div class="dropdown_Logout">
+                        <p id="loggingOut">Logout</p>
+                    </div>
+
                 </div>
+
             </div>
+
+            <div class="searchContainer">
+
+                <img class="searchIcon" src="assets/search_icon.svg" alt="">
+                
+                <input type="text" id="search" placeholder="Search contacts">
+
+            </div>
+
+
         </div>
 
+        <div class="middle">
 
+            <div class="add-contacts">
+
+                <form id="addContactsForm">
+                    
+                    <div class="top">
+                        <div class="circle">
+                            <img src="assets/add_white_icon.svg" alt="">
+                        </div>
+                        
+                        <h2>Add New Contact</h2>
+                    </div>
+
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter first name" required>
+
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter last name" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Example@gmail.com" required>
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" placeholder="555-555-5555" required>
+
+                    <button type="submit" id="saveContact">Save Contact</button>
+                    
+                    <span id="addResult"></span>
+                    
+                </form>
+
+            </div>
+
+            <div class="my-contacts">
+                
+                <div class="contacts">
+
+                
+                </div>
+            
+            </div>
+
+        </div>
     </div>
 
    

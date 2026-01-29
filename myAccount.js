@@ -1,5 +1,10 @@
+// retrieve user info saved during login
 const current_name = sessionStorage.getItem("name");
 const userID = sessionStorage.getItem("userID");
+
+// caching elements to avoid repeat lookups
+const searchInput = document.getElementById("search");
+const contacts = document.querySelector(".contacts");
 
 
 
@@ -29,10 +34,127 @@ else{
 
 */
 
+// Gets contacts from DB based on a search string
+
+async function fetchContacts(query = "") {
+    try{
+
+        // send POST request and current user id
+        const response = await fetch('searchContacts.php', {
+
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({search: query, userID: userID})
+
+        });
+
+        // Parse the JSON response from PHP
+
+        const data = await response.json();
+
+        // Clear container before rendering
+        contacts.innerHTML ="";
+
+        // IF result exist loop through and build cards
+        if(data.results && data.results.length > 0){
+
+            data.results.forEach(contact => {
+
+                const card = document.createElement('div');
+
+                card.className = 'contact-card';
+
+                card.innerHTML =  `
+                        <h3> ${contact.firstName} ${contact.lastName}</h3>
+                        <p><strong>Email:</strong> ${contact.email}<p>
+                        <p><strong>Phone:</strong> ${contact.phone}</p>`;
+                
+                contacts.appendChild(card);
+                
+            });
+
+        }
+        else{
+
+            // Show a message if no data found
+            contacts.innerHTML = `
+                    <div class="no-contacts">
+                        <p>No contacts found.</p>
+                    </div>`
+        }
+    }
+    catch(error){
+
+        console.error("Error fetching contacts:", error);
+    }
+}
+
+
+
+
+document.getElementById('addContactsForm').addEventListener('submit', async function(e) {
+
+    // Prevent broswer from refreshing
+    e.preventDefault();
+
+    // Package data into JSON
+    const payload = {
+
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        userId: userID
+
+    };
+
+    try{
+
+        const response = await fetch('addContacts.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        // If PHP returns no error, reset and refresh the list of contact
+        if(result.error === ""){
+
+            this.reset();
+
+            fetchContacts(""); // refresh
+
+        }
+        else{
+
+            // display error 
+            document.getElementById("addResult").innerHTML = result.error;
+        }
+    }
+    catch(error){
+
+        document.getElementById("addResult").innerHTML = "Server Error";
+    }
+    
+});
+
+searchInput.addEventListener('input', (e) => {
+
+    fetchContacts(e.target.value);
+
+});
+
+
+// logout
+
 document.getElementById("loggingOut").addEventListener('click', function (e) {
+
     e.preventDefault();
     
     sessionStorage.clear();
 
     window.location.href = 'index.html';
 });
+
+window.onload = () => fetchContacts("")

@@ -1,117 +1,107 @@
-.account-conatiner{
-    background: #d7b5fd;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px;
-    gap: 15px;
-    font-family: sans-serif;
-    width: 90%;
-    border-radius: 25px;
-    
-    max-width: 1200px;
+:root{
+    --base-color: #d7b5fd;
+    --base-color2: #e5d8f3;
+    --accent-color: #9d50bb;
 
-    border: 2px solid black;
-    margin: 0 auto;
 }
-
-.searchContainer, .account-conatiner, .actionContainer{
-    display: flex;
-    align-items: center;
-    min-width: fit-content;
-}
-
-#search{
-    min-width: 150px;
-    max-width: 300px;
-    width: 100%;
-}
-
 
 body{
-    background: #f2effa;
+    background: var(--base-color2);
+
+}
+
+.account-container{
+   max-width: 1000px;
+   margin: 30px auto;
+   padding: 30px;
+   background: white;
+   border-radius: 15px;
+   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+   min-height: 80vh;
+
+}
+
+.header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 3px solid rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+
+    
+}
+
+.my_account{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    font-family: sans-serif;
-    height: 70vh;
-    margin: -50px 0 50px;
+    gap: 10px;
+}
+
+#accountName{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.searchContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
 }
 
 #search{
     width: 100%;
-    background-color: #eee;
+    background-color: #fafafa;
     border: 2px solid black;
     border-radius: 25px;
     padding: 8px 12px 8px 36px;
     height: 30px;
     box-sizing: border-box;
+
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+
+    box-shadow: 0 6px 6px rgba(0,0,0,.1);
     
 }
 
 .searchIcon{
     position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
+    left: 12px;
     width: 16px;
     height: 16px;
     pointer-events: none;
 }
 
-button{
-    
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.actionContainer{
-    display: flex;
-    gap: 15px;
-}
-
-.actionContainer button{
-    margin: 0 50px;
-    min-width: 30px;
-}
-
-
-.searchContainer{
-    position: relative;
-    width: 250px;
-    padding-left: 5px;
-}
-
-.accountContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding-right: 5px;
-}
-
 
 .dropdown{
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
-.dropdown_logout{
+.dropdown_Logout{
     display: none;
     position: absolute;
-    right: 0;
+    top: 100%;
+    right: 255;
     background-color: #fff;
     min-width: 120px;
+
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     box-shadow: 5px;
     border-radius: 5px;
     z-index: 1000;
-    overflow: hidden;
+    margin-top: 1px;
 }
 
-.dropdown_logout p{
+.dropdown_Logout p{
+    margin: 0;
     color: #333;
     padding: 12px 16px;
     display: block;
@@ -120,11 +110,128 @@ button{
 
 }
 
-.dropdown_logout p:hover{
+.dropdown_Logout p:hover{
     background-color: #f2effa;
     color: #af69f5
 }
 
-.dropdown:hover .dropdown_logout{
+.dropdown:hover .dropdown_Logout{
     display: block;
+}
+
+
+
+.middle{
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.top h2{
+    color: white;
+    white-space: nowrap;
+
+}
+
+.circle{
+    background-color: var(--accent-color);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.circle img{
+    width: 20px;
+    height: 20px;
+}
+
+
+.add-contacts{
+    flex: 1;
+    max-width: 300px;
+    background: var(--base-color);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+#addContactsForm label{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+#addContactsForm input{
+    background-color: white;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.my-contacts{
+    flex: 2;
+
+}
+
+.contacts{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+
+.contact-card{
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--base-color);
+}
+
+#saveContact{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#addResult{
+    padding-top: 25px;
+    color: red;
+}
+
+.no-contacts{
+    grid-column:  1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: #f8f9fa;
+    border: 2px dashed var(--base-color);
+    border-radius: 15px;
+    color: #888;
+    font-weight: bold;
 }
