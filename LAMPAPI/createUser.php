@@ -1,35 +1,24 @@
 <?php
 	$inData = getRequestInfo();
 
-	$id = 0;
-	$firstName = "";
-	$lastName = "";
+	$FirstName = $inData["firstName"];
+	$LastName = $inData["lastName"];
+	$Login = $inData["login"];
+	$password = $inData["password"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
-	if( $conn->connect_error )
+	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT INTO Users (firstName, lastName, login, password)
-                                VALUES (?, ?, ?, ?)");
-
-		$stmt->bind_param("ss",$inData["firstName"], $inData["lastName"], $inData["login"], $inData["password"]);
+		$stmt = $conn->prepare("INSERT into Users (FirstName, LastName, Login, Password) VALUES(?,?,?,?)");
+		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
 		$stmt->execute();
-		$result = $stmt->get_result();
-
-		if( $row = $result->fetch_assoc())
-		{
-			returnWithInfo($row['firstName'], $row['lastName'], $row['ID']);
-		}
-		else
-		{
-			returnWithError("No User Created");
-		}
-
 		$stmt->close();
 		$conn->close();
+		returnWithError("");
 	}
 
 	function getRequestInfo()
@@ -45,13 +34,8 @@
 
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function returnWithInfo( $firstName, $lastName, $id )
-	{
-		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
-		sendResultInfoAsJson( $retValue );
-	}
 ?>
