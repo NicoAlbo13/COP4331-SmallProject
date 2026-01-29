@@ -35,6 +35,7 @@ else{
 
 
 // Gets contacts from DB based on a search string
+console.log("Sending search for User ID", userID);
 
 async function fetchContacts(query = "") {
     try{
