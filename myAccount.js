@@ -48,6 +48,10 @@ async function fetchContacts(query = "") {
 
         });
 
+        if(!response.ok){
+            throw new Error("Server Error: " + response.status);
+        }
+
         // Parse the JSON response from PHP
 
         const data = await response.json();
@@ -66,7 +70,7 @@ async function fetchContacts(query = "") {
 
                 card.innerHTML =  `
                         <h3> ${contact.firstName} ${contact.lastName}</h3>
-                        <p><strong>Email:</strong> ${contact.email}<p>
+                        <p><strong>Email:</strong> ${contact.email}</p>
                         <p><strong>Phone:</strong> ${contact.phone}</p>`;
                 
                 contacts.appendChild(card);
