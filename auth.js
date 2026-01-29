@@ -22,6 +22,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         const result = await res.json();
 
         if(result.error ===""){
+            sessionStorage.setItem("userID", result.ID);
             window.location.href = "account.html";
         }else{
             document.getElementById("loginResult").innerHTML = result.error;
