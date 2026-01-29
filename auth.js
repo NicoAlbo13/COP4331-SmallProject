@@ -22,7 +22,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         const result = await res.json();
 
         if(result.error ===""){
-            sessionStorage.setItem("userID", result.ID);
+            sessionStorage.setItem("userID", result.id);
             sessionStorage.setItem("name", result.firstName);
             window.location.href = "account.html";
         }else{
