@@ -13,7 +13,9 @@
     {
         $search = "%" . $inData["search"] . "%";
         $user = $inData["userID"];
-        $stmt = $conn->prepare("SELECT * FROM Contacts where userID=:user AND (firstName like :search OR lastName like :search OR email like :search OR phone like :search"); //TODO make sure the field names are right
+        $stmt = $conn->prepare("SELECT * FROM Contacts where userID=? AND (firstName like ? OR lastName like ? OR email like ? OR phone like ?)"); //TODO make sure the field names are right
+        $stmt->bind_param("issss", $user, $search, $search, $search, $search);
+        
         //TODO bind parameters?
 
         $stmt->execute();
