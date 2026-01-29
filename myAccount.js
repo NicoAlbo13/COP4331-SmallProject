@@ -23,7 +23,7 @@ const contacts = document.querySelector(".contacts");
 
 
 // USER CHECK
-/*
+
 if(!userID){
     window.location.href = "index.html";
 
@@ -32,7 +32,7 @@ else{
     document.getElementById("accountName").innerHTML = current_name || "User"
 }
 
-*/
+
 
 // Gets contacts from DB based on a search string
 
