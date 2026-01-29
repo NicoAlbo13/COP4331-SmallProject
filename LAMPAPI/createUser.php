@@ -4,18 +4,25 @@
 	$FirstName = $inData["firstName"];
 	$LastName = $inData["lastName"];
 	$Login = $inData["login"];
-	$password = $inData["password"];
+	$Password = $inData["password"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error)
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError( "Failed DB connection: " . $conn->connect_error );
 	}
 	else
 	{
 		$stmt = $conn->prepare("INSERT into Users (FirstName, LastName, Login, Password) VALUES(?,?,?,?)");
+		if (!$stmt) {
+			returnWithError("Prepare failed: " . $conn->error);
+		}
+
 		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $Password);
-		$stmt->execute();
+		if (!$stmt->execute()) {
+			returnWithError("Execute failed: " . $stmt->error);
+		}
+
 		$stmt->close();
 		$conn->close();
 		returnWithError("");
