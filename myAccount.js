@@ -40,7 +40,7 @@ async function fetchContacts(query = "") {
     try{
 
         // send POST request and current user id
-        const response = await fetch('searchContacts.php', {
+        const response = await fetch('LAMPAPI/searchContacts.php', {
 
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -110,7 +110,7 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
     try{
 
-        const response = await fetch('addContacts.php', {
+        const response = await fetch('LAMPAPI/addContacts.php', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
