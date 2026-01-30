@@ -45,8 +45,8 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
 
         //
         const data = {
-            first: document.getElementById("signUpFirstName").value,
-            last: document.getElementById("signUpLastName").value,
+            firstName: document.getElementById("signUpFirstName").value,
+            lastName: document.getElementById("signUpLastName").value,
             login: document.getElementById("signUpUser").value,
             password: document.getElementById("signUp_pass").value,
         };
