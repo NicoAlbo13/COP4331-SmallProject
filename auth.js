@@ -51,7 +51,7 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
             password: document.getElementById("signUp_pass").value,
         };
 
-        const res = await fetch("LAMPAPI/register.php", {
+        const res = await fetch("LAMPAPI/createUser.php", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(data)
