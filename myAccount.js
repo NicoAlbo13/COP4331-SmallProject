@@ -109,7 +109,7 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
         LastName: document.getElementById('lastName').value,
         Email: document.getElementById('email').value,
         Phone: document.getElementById('phone').value,
-        UserId: userID
+        UserID: userID
 
     };
 
