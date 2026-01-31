@@ -105,11 +105,11 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
     // Package data into JSON
     const payload = {
 
-        FirstName: document.getElementById('firstName').value,
-        LastName: document.getElementById('lastName').value,
-        Email: document.getElementById('email').value,
-        Phone: document.getElementById('phone').value,
-        UserID: userID
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        userID: userID
 
     };
 
