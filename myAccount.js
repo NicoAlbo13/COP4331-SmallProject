@@ -115,7 +115,7 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
     try{
 
-        const response = await fetch('LAMPAPI/addContacts.php', {
+        const response = await fetch('LAMPAPI/addContact.php', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
