@@ -122,7 +122,7 @@ async function deleteContact(id) {
             fetchContacts(searchInput.value);
         }
         else{
-            console("Error: " + result.error);
+            console.log("Error: " + result.error);
         }
 
     } catch (error) {
@@ -198,4 +198,4 @@ document.getElementById("loggingOut").addEventListener('click', function (e) {
     window.location.href = 'index.html';
 });
 
-window.onload = () => fetchContacts("")
+window.onload = () => fetchContacts("");
