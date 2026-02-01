@@ -32,10 +32,10 @@
             }
             $searchCount++;
             //TODO add the result as a JSON object?
-            $searchResults .= '{"firstName":"' . $row["firstName"] . '",'
-                            . '"lastName":"' . $row["lastName"] . '",'
-                            . '"phone":"' . $row["phone"] . '",'
-                            . '"email":"' . $row["email"] . '"}';
+            $searchResults .= '{"firstName":"' . $row["FirstName"] . '",'
+                            . '"lastName":"' . $row["LastName"] . '",'
+                            . '"phone":"' . $row["Phone"] . '",'
+                            . '"email":"' . $row["Email"] . '"}';
         }
 
         if($searchCount == 0) //there were no results
