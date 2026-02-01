@@ -45,6 +45,21 @@ body{
     font-size: 20px;
 }
 
+.top_right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
 .searchContainer{
     position: relative;
     display: flex;
