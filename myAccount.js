@@ -101,6 +101,33 @@ async function fetchContacts(query = "") {
 // DELETE contacts
 async function deleteContact(id) {
     
+    const payload = {
+        ID: id,
+        userID: userID
+    };
+
+    try {
+        
+        const response = await fetch('LAMPAPI/deleteContact.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if(result.error ===""){
+
+            // stays on search result after delete.
+            fetchContacts(searchInput.value);
+        }
+        else{
+            console("Error: " + result.error);
+        }
+
+    } catch (error) {
+        console.error("Delete failed:", error);
+    }
 }
 
 
