@@ -35,7 +35,8 @@
             $searchResults .= '{"firstName":"' . $row["FirstName"] . '",'
                             . '"lastName":"' . $row["LastName"] . '",'
                             . '"phone":"' . $row["Phone"] . '",'
-                            . '"email":"' . $row["Email"] . '"}';
+                            . '"email":"' . $row["Email"] . '",'
+                            . '"ID":' . $row["ID"] . '}';
         }
 
         if($searchCount == 0) //there were no results
