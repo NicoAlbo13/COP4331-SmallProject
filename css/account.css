@@ -189,6 +189,23 @@ body{
 .my-contacts{
     flex: 2;
 
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.my-contacts::-webkit-scrollbar{
+    width: 8px;;
+}
+
+.my-contacts::-webkit-scrollbar-track{
+    background: var(--base-color2);
+    border-radius: 10px;
+}
+
+.my-contacts::-webkit-scrollbar-thumb{
+    background: var(--accent-color);
+    border-radius: 10px;
 }
 
 .contacts{
@@ -204,6 +221,15 @@ body{
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border-left: 5px solid var(--base-color);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.contact-card:hover{
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 #saveContact{
@@ -234,4 +260,36 @@ body{
     border-radius: 15px;
     color: #888;
     font-weight: bold;
+}
+
+.rightSide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    white-space: nowrap;
+    gap: 10px;
+}
+
+.rightSide img{
+    width: 40px;
+    height: 40px;
+}
+
+.deleteBtn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.trash{
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+
+}
+
+.trash:hover{
+    transform: scale(1.3);
 }

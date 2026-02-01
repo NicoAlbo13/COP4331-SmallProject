@@ -72,7 +72,11 @@ async function fetchContacts(query = "") {
                 card.innerHTML =  `
                         <h3> ${contact.firstName} ${contact.lastName}</h3>
                         <p><strong>Email:</strong> ${contact.email}</p>
-                        <p><strong>Phone:</strong> ${contact.phone}</p>`;
+                        <p><strong>Phone:</strong> ${contact.phone}</p>
+                        
+                        <button class = "deleteBtn" onclick="deleteContact(${contact.id})">
+                            <img src = "assets/delete_icon.svg" class ="trash>
+                        </button>`;
                 
                 contacts.appendChild(card);
                 
@@ -94,9 +98,14 @@ async function fetchContacts(query = "") {
     }
 }
 
+// DELETE contacts
+async function deleteContact(id) {
+    
+}
 
 
 
+// Add contacts
 document.getElementById('addContactsForm').addEventListener('submit', async function(e) {
 
     // Prevent broswer from refreshing
