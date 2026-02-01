@@ -74,7 +74,7 @@ async function fetchContacts(query = "") {
                         <p><strong>Email:</strong> ${contact.email}</p>
                         <p><strong>Phone:</strong> ${contact.phone}</p>
                         
-                        <button class = "deleteBtn" onclick="deleteContact(${contact.id})">
+                        <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
                             <img src = "assets/delete_icon.svg" class ="trash">
                         </button>`;
                 
