@@ -33,6 +33,23 @@ else{
 }
 
 
+function formatPhone(phoneString){
+
+    // get rid of non nuumeric (saftey check basically)
+    const clean = ('' + phoneString).replace(/\D/g, ''); // get every char not a digit 
+
+    // check for length
+    const correctLength = clean.match(/^(\d{3})(\d{3})(\d{4})$/); // group the digits into groups that matches the format 555-555-5555
+
+    if(match){
+        return correctLength[1] + '-' + correctLength[2] + '-' + correctLength[3];
+
+    }
+
+    return phoneString;
+}
+
+
 
 // Gets contacts from DB based on a search string
 //DEBUG: console.log("Sending search for User ID", userID);
@@ -80,10 +97,12 @@ async function fetchContacts(query = "") {
 
                 card.className = 'contact-card';
 
+                const phoneNumberFormat = formatPhone(contact.phone);
+
                 card.innerHTML =  `
                         <h3> ${contact.firstName} ${contact.lastName}</h3>
                         <p><strong>Email:</strong> ${contact.email}</p>
-                        <p><strong>Phone:</strong> ${contact.phone}</p>
+                        <p><strong>Phone:</strong> ${phoneNumberFormat}</p>
                         
                         <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
                             <img src = "assets/delete_icon.svg" class ="trash">
@@ -175,7 +194,16 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
             this.reset();
 
+            const resultShow = document.getElementById("addResult");
+            resultShow.style.color = "green";
+            resultShow.innerHTML = "Contact successfully added!";
+
             fetchContacts(""); // refresh
+
+            // clear success after 3s
+            setTimeout(() => {
+                resultShow.innerHTML = "";
+            }, 3000);
 
         }
         else{
