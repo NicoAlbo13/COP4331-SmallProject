@@ -60,10 +60,21 @@ async function fetchContacts(query = "") {
         // Clear container before rendering
         contacts.innerHTML ="";
 
-        // IF result exist loop through and build cards
-        if(data.results && data.results.length > 0){
+        // filter the search
+        // I use the [] in case the return is null plus without it, code can maybe crash
+        let filtered = data.results || [];
 
-            data.results.forEach(contact => {
+        if(query.trim() !== ""){
+            const lowerCap = query.toLowerCase();
+            displayInfo = displayInfo.filter(contact =>
+                contact.firstName.toLowerCase().startsWith(lowerCap)
+            );
+        }
+
+        // result exist loop through and build cards
+        if(filtered.length > 0){
+
+            filtered.forEach(contact => {
 
                 const card = document.createElement('div');
 
