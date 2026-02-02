@@ -66,7 +66,7 @@ async function fetchContacts(query = "") {
 
         if(query.trim() !== ""){
             const lowerCap = query.toLowerCase();
-            displayInfo = displayInfo.filter(contact =>
+            filtered = filtered.filter(contact =>
                 contact.firstName.toLowerCase().startsWith(lowerCap)
             );
         }
