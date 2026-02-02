@@ -41,7 +41,7 @@ function formatPhone(phoneString){
     // check for length
     const correctLength = clean.match(/^(\d{3})(\d{3})(\d{4})$/); // group the digits into groups that matches the format 555-555-5555
 
-    if(match){
+    if(correctLength){
         return correctLength[1] + '-' + correctLength[2] + '-' + correctLength[3];
 
     }
