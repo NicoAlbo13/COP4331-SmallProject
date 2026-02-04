@@ -1,12 +1,16 @@
 :root{
-    --base-color: #d7b5fd;
-    --base-color2: #e5d8f3;
-    --accent-color: #9d50bb;
+    --base-color: #85a8ff;
+    --base-color2: #f0f4ff;
+    --accent-color: #2c59c7;
 
 }
 
 body{
-    background: var(--base-color2);
+    background-image: url(../assets/underwater_rays.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 
@@ -14,7 +18,10 @@ body{
    max-width: 1000px;
    margin: 30px auto;
    padding: 30px;
-   background: white;
+
+   background: rgba(255,255,255,0.85);
+   backdrop-filter: blur(8px);
+
    border-radius: 15px;
    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
    min-height: 80vh;
@@ -172,8 +179,8 @@ body{
 }
 
 .dropdown_Logout p:hover{
-    background-color: #f2effa;
-    color: #af69f5
+    background-color: var(--base-color2);
+    color: var(--accent-color);
 }
 
 .dropdown:hover .dropdown_Logout{

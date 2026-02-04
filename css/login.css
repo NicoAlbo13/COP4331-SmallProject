@@ -1,11 +1,17 @@
 :root{
     --base-color: #f2effa;
-    --primary-color: #af69f5;
+    --primary-color: #85a8ff;
 }
 
 
 body{
-    background: var(--base-color);
+    background-image: url(../assets/sunset_beach2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
     display: flex;
     justify-content: center;
     align-items: center;
