@@ -25,7 +25,7 @@ const menuFilter =  document.getElementById("filterMenu");
 
 
 
-// USER CHECK
+//------------------USER CHECK----------------------------------------------------------------------------------------------------
 
 if(!userID){
     window.location.href = "index.html";
@@ -37,6 +37,8 @@ else{
 
 
 
+
+//---------- format the phone number to show the required (555-555-5555)
 function formatPhone(phoneString){
 
     // get rid of non nuumeric (saftey check basically)
@@ -52,6 +54,9 @@ function formatPhone(phoneString){
 
     return phoneString;
 }
+
+
+
 
 
 
@@ -101,7 +106,7 @@ async function fetchContacts(query = "") {
             filtered = filtered.filter(contact => {
 
 
-                // no checkboxes marked so do regular search
+                // no checkboxes marked so do regular search for last and first
                 if(!findFirst && !findLast && !findEmail && !findPhone){
                     
                     return contact.firstName.toLowerCase().startsWith(lowerCap) || contact.lastName.toLowerCase().startsWith(lowerCap);
@@ -161,7 +166,12 @@ async function fetchContacts(query = "") {
     }
 }
 
-// DELETE contacts
+
+
+
+
+
+//-------------DELETE contacts----------------------------------------------------------------------------------------------------
 async function deleteContact(id) {
     
     const payload = {
@@ -195,7 +205,10 @@ async function deleteContact(id) {
 
 
 
-// Add contacts
+
+
+
+// ---------------------Add contacts----------------------------------------------------------------------------------------------------
 document.getElementById('addContactsForm').addEventListener('submit', async function(e) {
 
     // Prevent broswer from refreshing
@@ -263,12 +276,22 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
     
 });
 
-// live search
+
+
+
+
+
+
+// ------------------live search----------------------------------------------------------------------------------------------------
 searchInput.addEventListener('input', (e) => {
 
     fetchContacts(e.target.value);
 
 });
+
+
+
+
 
 // this will hold the filter menu 
 chooseFilter.addEventListener('click', () => {
@@ -282,7 +305,10 @@ window.addEventListener('click', (e) => {
     }
 })
 
-// logout
+
+
+
+// ---------------logout----------------------------------------------------------------------------------------------------
 
 document.getElementById("loggingOut").addEventListener('click', function (e) {
 
