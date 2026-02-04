@@ -103,8 +103,8 @@ async function fetchContacts(query = "") {
 
                 // no checkboxes marked so do regular search
                 if(!findFirst && !findLast && !findEmail && !findPhone){
-                    return contact.firstName.toLowerCase().startsWith(lowerCap) || contact.lastName.toLowerCase().startsWith(lowerCap) || 
-                    contact.email.toLowerCase().startsWith(lowerCap) || contact.phone.startsWith(cleanedNumber);
+                    
+                    return contact.firstName.toLowerCase().startsWith(lowerCap) || contact.lastName.toLowerCase().startsWith(lowerCap);
 
                 }
 
