@@ -6,6 +6,9 @@ const userID = sessionStorage.getItem("userID");
 const searchInput = document.getElementById("search");
 const contacts = document.querySelector(".contacts");
 
+// option filter
+const chooseFilter = document.querySelector(".filterOption");
+const menuFilter =  document.getElementById("filterMenu");
 
 
 
@@ -23,7 +26,7 @@ const contacts = document.querySelector(".contacts");
 
 
 // USER CHECK
-
+/*
 if(!userID){
     window.location.href = "index.html";
 
@@ -32,6 +35,7 @@ else{
     document.getElementById("accountName").innerHTML = current_name || "User"
 }
 
+*/
 
 function formatPhone(phoneString){
 
@@ -83,9 +87,37 @@ async function fetchContacts(query = "") {
 
         if(query.trim() !== ""){
             const lowerCap = query.toLowerCase();
-            filtered = filtered.filter(contact =>
-                contact.firstName.toLowerCase().startsWith(lowerCap)
-            );
+
+            const cleanedNumber = lowerCap.replace(/\D/g, '');
+
+            //filters checkboxes
+            const findFirst = document.getElementById("first").checked;
+            const findLast = document.getElementById("last").checked;
+            const findEmail = document.getElementById("emailFilter").checked;
+            const findPhone = document.getElementById("phoneFilter").checked;
+
+            
+
+            filtered = filtered.filter(contact => {
+
+
+                // no checkboxes marked so do regular search
+                if(!findFirst && !findLast && !findEmail && !findPhone){
+                    return contact.firstName.toLowerCase().startsWith(lowerCap) || contact.lastName.toLowerCase().startsWith(lowerCap) || 
+                    contact.email.toLowerCase().startsWith(lowerCap) || contact.phone.startsWith(cleanedNumber);
+
+                }
+
+                // return the ones the user checked
+                const matchedFirst = findFirst && contact.firstName.toLowerCase().startsWith(lowerCap);
+                const matchedLast = findLast && contact.lastName.toLowerCase().startsWith(lowerCap);
+                const matchedEmail = findEmail && contact.email.toLowerCase().startsWith(lowerCap);
+                const matchedPhone = findPhone && contact.phone.toLowerCase().startsWith(cleanedNumber);
+
+                return matchedFirst || matchedLast || matchedEmail || matchedPhone;
+
+
+            });
         }
 
         // result exist loop through and build cards
@@ -169,13 +201,24 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
     // Prevent broswer from refreshing
     e.preventDefault();
 
+    // strip everything not a number and verify length 
+    const raw = document.getElementById('phone').value.replace(/\D/g, '');
+
+    if(raw.length !== 10 ){
+        const resultShow = document.getElementById("addResult");
+        resultShow.style.color = "red";
+        resultShow.innerHTML = "Error: Phone must be 10 digits.";
+
+        return;
+    }
+
     // Package data into JSON
     const payload = {
 
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
         email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
+        phone: raw,
         userID: userID
 
     };
@@ -220,12 +263,24 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
     
 });
 
+// live search
 searchInput.addEventListener('input', (e) => {
 
     fetchContacts(e.target.value);
 
 });
 
+// this will hold the filter menu 
+chooseFilter.addEventListener('click', () => {
+    menuFilter.classList.toggle("show")
+});
+
+// click outside and itll cancel the hold and disappear
+window.addEventListener('click', (e) => {
+    if(!e.target.matches('.filterOption') && !menuFilter.contains(e.target)){
+        menuFilter.classList.remove("show");
+    }
+})
 
 // logout
 
