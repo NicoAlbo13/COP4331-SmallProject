@@ -26,7 +26,7 @@ const menuFilter =  document.getElementById("filterMenu");
 
 
 // USER CHECK
-/*
+
 if(!userID){
     window.location.href = "index.html";
 
@@ -35,7 +35,7 @@ else{
     document.getElementById("accountName").innerHTML = current_name || "User"
 }
 
-*/
+
 
 function formatPhone(phoneString){
 
@@ -272,7 +272,7 @@ searchInput.addEventListener('input', (e) => {
 
 // this will hold the filter menu 
 chooseFilter.addEventListener('click', () => {
-    menuFilter.classList.toggle("show")
+    menuFilter.classList.toggle("show");
 });
 
 // click outside and itll cancel the hold and disappear
