@@ -26,7 +26,7 @@ const menuFilter =  document.getElementById("filterMenu");
 
 
 //------------------USER CHECK----------------------------------------------------------------------------------------------------
-/*
+
 if(!userID){
     window.location.href = "index.html";
 
@@ -34,7 +34,7 @@ if(!userID){
 else{
     document.getElementById("accountName").innerHTML = current_name || "User"
 }
-*/
+
 
 
 
