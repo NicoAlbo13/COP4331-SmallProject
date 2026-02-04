@@ -16,7 +16,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
     height: 90vh;
     margin: -20px 0 50px;
 }
@@ -34,7 +35,7 @@ h2{
 /*paragraph*/
 p{
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
