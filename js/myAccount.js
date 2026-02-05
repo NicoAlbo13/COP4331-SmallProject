@@ -142,9 +142,17 @@ async function fetchContacts(query = "") {
                         <p><strong>Email:</strong> ${contact.email}</p>
                         <p><strong>Phone:</strong> ${phoneNumberFormat}</p>
                         
-                        <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
-                            <img src = "assets/delete_icon.svg" class ="trash">
-                        </button>`;
+                        <div class = "cardBtn">
+
+                            <button class = "editBtn" onclick="">
+                                <img src = "assets/edit_icon" class ="editIcon">
+                            </button>
+
+                            <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
+                                <img src = "assets/delete_icon.svg" class ="trash">
+                            </button>
+
+                        </div>`;
                 
                 contacts.appendChild(card);
                 

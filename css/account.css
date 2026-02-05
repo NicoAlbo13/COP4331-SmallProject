@@ -356,14 +356,21 @@ body{
     height: 40px;
 }
 
-.deleteBtn{
+.cardBtn{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+
+.deleteBtn, .editBtn{
     background: none;
     border: none;
     cursor: pointer;
     padding: 5px;
 }
 
-.trash{
+.trash, .editIcon{
     width: 24px;
     height: 24px;
     transition: transform 0.2s;
@@ -377,3 +384,6 @@ body{
     filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(330deg) brightness(90%) contrast(100%);
 }
 
+.editIcon:hover{
+    transform: scale(1.3);
+}
