@@ -60,7 +60,15 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
         const result = await res.json();
 
         if(result.error ===""){
-            document.getElementById("signUpResult").innerHTML = "Created Successfully";
+            const resultShow = document.getElementById("signUpResult");
+            resultShow.style.color = "green";
+            resultShow.innerHTML = "Account successfully added!";
+
+            // clear success after 3s
+            setTimeout(() => {
+                resultShow.innerHTML = "";
+            }, 3000);
+
             
         }else{
             document.getElementById("signUpResult").innerHTML = result.error;
