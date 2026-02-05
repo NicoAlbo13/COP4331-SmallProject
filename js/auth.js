@@ -27,7 +27,15 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
             
             window.location.href = "account.html";
         }else{
-            document.getElementById("loginResult").innerHTML = result.error;
+
+            const resultShow = document.getElementById("loginResult");
+            resultShow.style.color = "red";
+            resultShow.innerHTML = "Incorrect Login!";
+
+            // clear success after 3s
+            setTimeout(() => {
+                resultShow.innerHTML = "";
+            }, 3000);
         }
         
     } catch (error) {
