@@ -145,7 +145,7 @@ async function fetchContacts(query = "") {
                         <div class = "cardBtn">
 
                             <button class = "editBtn" onclick="">
-                                <img src = "assets/edit_icon" class ="editIcon">
+                                <img src = "assets/edit_icon.svg" class ="editIcon">
                             </button>
 
                             <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
