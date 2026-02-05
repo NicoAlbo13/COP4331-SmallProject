@@ -60,9 +60,8 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
         const result = await res.json();
 
         if(result.error ===""){
-            sessionStorage.setItem("userID", result.id);
-            sessionStorage.setItem("name", data.firstName)
-            window.location.href = "account.html";
+            document.getElementById("signUpResult").innerHTML = "Created Successfully";
+            
         }else{
             document.getElementById("signUpResult").innerHTML = result.error;
         }
