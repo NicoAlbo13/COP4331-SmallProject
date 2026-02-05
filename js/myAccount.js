@@ -136,7 +136,7 @@ async function fetchContacts(query = "") {
 
                 const phoneNumberFormat = formatPhone(contact.phone);
 
-                // has the contacts first/ last names, email, number and the option to delete and edit
+                // has the contacts first/ last names, email, number and the option to delete and edit(TODO)
                 card.innerHTML =  `
                         <h3> ${contact.firstName} ${contact.lastName}</h3>
                         <p><strong>Email:</strong> ${contact.email}</p>
