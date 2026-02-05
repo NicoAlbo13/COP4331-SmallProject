@@ -60,6 +60,8 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
         const result = await res.json();
 
         if(result.error ===""){
+            document.getElementById("signUpForm").reset();
+            
             const resultShow = document.getElementById("signUpResult");
             resultShow.style.color = "green";
             resultShow.innerHTML = "Account successfully added!";
