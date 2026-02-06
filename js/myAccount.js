@@ -37,6 +37,10 @@ else{
 
 
 
+
+
+
+
 //---------- format the phone number to show the required (555-555-5555)
 function formatPhone(phoneString){
 
@@ -53,6 +57,13 @@ function formatPhone(phoneString){
 
     return phoneString;
 }
+
+
+
+
+
+
+//---------------------modal close and open---------------------------------------------------------
 
 function openEdit(contact){
     // this will pop it up
@@ -78,6 +89,9 @@ function closeModal(){
         modal.style.display = "none";
     }
 }
+
+
+
 
 
 
@@ -202,6 +216,8 @@ async function fetchContacts(query = "") {
 
 
 
+
+
 //-------------DELETE contacts----------------------------------------------------------------------------------------------------
 async function deleteContact(id) {
     
@@ -233,6 +249,11 @@ async function deleteContact(id) {
         console.error("Delete failed:", error);
     }
 }
+
+
+
+
+
 
 
 
@@ -311,6 +332,10 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
 
 
+
+
+
+
 // ------------------Edit Contacts----------------------------------------------------------------------------------------------------
 
 
@@ -375,6 +400,11 @@ document.getElementById("editFormContact").addEventListener('submit', async (e) 
 
 
 
+
+
+
+
+
 // ------------------live search----------------------------------------------------------------------------------------------------
 searchInput.addEventListener('input', (e) => {
 
@@ -385,6 +415,10 @@ searchInput.addEventListener('input', (e) => {
 
 
 
+
+
+
+//-------------------Filter options--------------------------------------------------------------------------------------------------------------
 
 // this will hold the filter menu 
 chooseFilter.addEventListener('click', () => {
@@ -397,6 +431,12 @@ window.addEventListener('click', (e) => {
         menuFilter.classList.remove("show");
     }
 })
+
+
+
+
+
+
 
 
 

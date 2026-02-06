@@ -456,9 +456,11 @@ body{
     box-sizing: border-box;
 }
 
+
 .UpdateContact{
     background-color: var(--accent-color);
 }
+
 
 .cancelBtn{
     background-color: rgb(213, 42, 42);
