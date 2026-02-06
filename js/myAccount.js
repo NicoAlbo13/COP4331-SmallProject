@@ -72,7 +72,7 @@ function openEdit(contact){
 
 // this should close the modal since display will disappear
 function closeModal(){
-    const modal = document.querySelector(".exitBtn");
+    const modal = document.getElementById("editContacts");
 
     if(modal){
         modal.style.display = "none";
