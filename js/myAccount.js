@@ -159,7 +159,7 @@ async function fetchContacts(query = "") {
                         
                         <div class = "cardBtn">
 
-                            <button class = "editBtn" onclick="openEdit(${JSON.stringify(contact)})">
+                            <button class = "editBtn" onclick='openEdit(${JSON.stringify(contact)})'>
                                 <img src = "assets/edit_icon.svg" class ="editIcon">
                             </button>
 
@@ -310,11 +310,15 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 document.getElementById("editFormContact").addEventListener('submit', async (e) => {
     e.preventDefault();
 
+
+    // strip everything not a number
+    const raw = document.getElementById('phone').value.replace(/\D/g, '');
+
     const payload = {
         id: document.getElementById("editID").value,
         firstName: document.getElementById("editFirst").value,
         lastName: document.getElementById("editLast").value,
-        phone: document.getElementById("editPhone").value,
+        phone: raw,
         email: document.getElementById("editEmail").value
     };
 
@@ -351,10 +355,10 @@ document.getElementById("editFormContact").addEventListener('submit', async (e) 
 
     }
     catch(error){
-
+        console.error("server error:", error);
     }
 
-} )
+});
 
 
 
