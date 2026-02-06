@@ -68,7 +68,7 @@ function openEdit(contact){
 
 // this should close the modal since display will disappear
 function closeModal(){
-    document.getElementById("editModal").style.display = "none";
+    document.getElementById("exitBtn").style.display = "none";
 }
 
 

@@ -434,3 +434,32 @@ body{
     border-radius: 5px;
 
 }
+
+.actionsModal{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    
+
+}
+
+
+.cancelBtn, .UpdateContact{
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.UpdateContact{
+    background-color: var(--accent-color);
+}
+
+.cancelBtn{
+    background-color: rgb(213, 42, 42);
+}
