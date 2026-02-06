@@ -37,7 +37,6 @@ else{
 
 
 
-
 //---------- format the phone number to show the required (555-555-5555)
 function formatPhone(phoneString){
 
@@ -55,6 +54,22 @@ function formatPhone(phoneString){
     return phoneString;
 }
 
+function openEdit(contact){
+    // this will pop it up
+    document.getElementById("editContacts").style.display ="block";
+
+    // id of the contact,first, last, email, and phone
+    document.getElementById("editId").value = contact.ID;
+    document.getElementById("editFirst").value = contact.firstName;
+    document.getElementById("editLast").value = contact.lastName;
+    document.getElementById("editEmail").value = contact.email;
+    document.getElementById("editPhone").value = contact.phone;
+}
+
+// this should close the modal since display will disappear
+function closeModal(){
+    document.getElementById("editModal").style.display = "none";
+}
 
 
 
@@ -93,7 +108,7 @@ async function fetchContacts(query = "") {
         if(query.trim() !== ""){
             const lowerCap = query.toLowerCase();
 
-            const cleanedNumber = lowerCap.replace(/\D/g, '');
+            const cleanedNumber = lowerCap.replace(/\D/g, ''); // might not be needed
 
             //filters checkboxes
             const findFirst = document.getElementById("first").checked;
@@ -109,15 +124,15 @@ async function fetchContacts(query = "") {
                 // no checkboxes marked so do regular search for last and first
                 if(!findFirst && !findLast && !findEmail && !findPhone){
                     
-                    return contact.firstName.toLowerCase().startsWith(lowerCap) || contact.lastName.toLowerCase().startsWith(lowerCap);
+                    return contact.firstName.toLowerCase() || contact.lastName.toLowerCase();
 
                 }
 
                 // return the ones the user checked
-                const matchedFirst = findFirst && contact.firstName.toLowerCase().startsWith(lowerCap);
-                const matchedLast = findLast && contact.lastName.toLowerCase().startsWith(lowerCap);
-                const matchedEmail = findEmail && contact.email.toLowerCase().startsWith(lowerCap);
-                const matchedPhone = findPhone && contact.phone.toLowerCase().startsWith(cleanedNumber);
+                const matchedFirst = findFirst && contact.firstName.toLowerCase();
+                const matchedLast = findLast && contact.lastName.toLowerCase();
+                const matchedEmail = findEmail && contact.email.toLowerCase();
+                const matchedPhone = findPhone && contact.phone.toLowerCase();
 
                 return matchedFirst || matchedLast || matchedEmail || matchedPhone;
 
@@ -144,7 +159,7 @@ async function fetchContacts(query = "") {
                         
                         <div class = "cardBtn">
 
-                            <button class = "editBtn" onclick="">
+                            <button class = "editBtn" onclick="openEdit(${JSON.stringify(contact)})">
                                 <img src = "assets/edit_icon.svg" class ="editIcon">
                             </button>
 
@@ -283,6 +298,63 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
     }
     
 });
+
+
+
+
+
+// ------------------Edit Contacts----------------------------------------------------------------------------------------------------
+
+
+// handles form submit
+document.getElementById("editFormContact").addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const payload = {
+        id: document.getElementById("editID").value,
+        firstName: document.getElementById("editFirst").value,
+        lastName: document.getElementById("editLast").value,
+        phone: document.getElementById("editPhone").value,
+        email: document.getElementById("editEmail").value
+    };
+
+
+    try{
+
+        const response = await fetch('LAMPAPI/editContact.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if(result.error === ""){
+
+            closeModal();
+
+            // refresh list of contacts
+            fetchContacts("");
+        }
+        else{
+
+            const resultShow = document.getElementById("editResults");
+            resultShow.style.color = "red";
+            resultShow.innerHTML = "Failed to update";
+
+            // clear success after 3s
+            setTimeout(() => {
+                resultShow.innerHTML = "";
+            }, 3000);
+
+        }
+
+    }
+    catch(error){
+
+    }
+
+} )
 
 
 

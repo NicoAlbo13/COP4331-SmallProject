@@ -123,7 +123,40 @@
         </div>
     </div>
 
-   
+   <div class="modal" id="editContacts">
+        <div class="editContent">
+            <div class="modalTop">
+                <h2>Edit Contact</h2>
+                <span class="exitBtn" onclick="closeModal()">X</span>
+            </div>
+
+            <form id="editFormContact">
+
+                <input type="hidden" id="editId">
+
+                <label for="editFirst">First Name</label>
+                <input type="text" id="editFirst" required>
+
+                <label for="editLast">Last Name</label>
+                <input type="text" id="editLast" required>
+
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" required>
+
+                <label for="editPhone">Phone</label>
+                <input type="tel" id="editPhone" required>
+
+                <div class="actionsModal">
+                    <button type="submit" class="cancelBtn">Update Contact</button>
+                    <button type="button" class="UpdateContact">Cancel</button>
+                </div>
+
+                <span id="editResults"></span>
+                
+            </form>
+
+        </div>
+   </div>
 
     <script src="./js/myAccount.js"></script>
     

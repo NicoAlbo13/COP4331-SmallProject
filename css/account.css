@@ -386,3 +386,51 @@ body{
 .editIcon:hover{
     transform: scale(1.3);
 }
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.editContent{
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    
+}
+
+.modalTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exitBtn{
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+
+    filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(330deg) brightness(90%) contrast(100%);
+}
+
+.editContent input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
