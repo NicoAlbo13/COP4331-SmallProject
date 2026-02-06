@@ -5,11 +5,14 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
+
+        const plainPass = document.getElementById("logIn_pass").value;
+        const hashed = md5(plainPass);
         
         // read the values from the input fields and store them in an object
         const data = {
             login: document.getElementById("logInUser").value,
-            password: document.getElementById("logIn_pass").value
+            password: hashed
         };
 
         // calling the login API endpoint
@@ -52,11 +55,15 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
     try {
 
         //
+
+        const plainPass = document.getElementById("signUp_pass").value;
+        const hashed = md5(plainPass);
+
         const data = {
             firstName: document.getElementById("signUpFirstName").value,
             lastName: document.getElementById("signUpLastName").value,
             login: document.getElementById("signUpUser").value,
-            password: document.getElementById("signUp_pass").value,
+            password: hashed
         };
 
         const res = await fetch("LAMPAPI/createUser.php", {
