@@ -56,7 +56,7 @@ function formatPhone(phoneString){
 
 function openEdit(contact){
     // this will pop it up
-    document.getElementById("editContacts").style.display ="block";
+    document.getElementById("modal").style.display ="block";
 
     // id of the contact,first, last, email, and phone
     document.getElementById("editId").value = contact.ID;
