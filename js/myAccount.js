@@ -56,7 +56,11 @@ function formatPhone(phoneString){
 
 function openEdit(contact){
     // this will pop it up
-    document.getElementById("modal").style.display ="block";
+    const modal = document.getElementById("editContacts");
+
+    if(modal){
+        modal.style.display ="block";
+    }
 
     // id of the contact,first, last, email, and phone
     document.getElementById("editId").value = contact.ID;
@@ -68,7 +72,11 @@ function openEdit(contact){
 
 // this should close the modal since display will disappear
 function closeModal(){
-    document.getElementById("exitBtn").style.display = "none";
+    const modal = document.getElementById("exitBtn");
+
+    if(modal){
+        modal.style.display = "none";
+    }
 }
 
 
