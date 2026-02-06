@@ -6,6 +6,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     try {
 
+        // Hash the passwords after recieving the plain password
+
         const plainPass = document.getElementById("logIn_pass").value;
         const hashed = md5(plainPass);
         
@@ -54,8 +56,7 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
 
     try {
 
-        //
-
+        // Hash the passwords after recieving the plain password
         const plainPass = document.getElementById("signUp_pass").value;
         const hashed = md5(plainPass);
 
