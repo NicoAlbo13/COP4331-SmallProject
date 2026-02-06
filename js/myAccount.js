@@ -320,7 +320,7 @@ document.getElementById("editFormContact").addEventListener('submit', async (e) 
 
 
     // strip everything not a number
-    const raw = document.getElementById('phone').value.replace(/\D/g, '');
+    const raw = document.getElementById('editPhone').value.replace(/\D/g, '');
 
     const payload = {
         id: document.getElementById("editId").value,
