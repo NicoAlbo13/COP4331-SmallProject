@@ -137,10 +137,10 @@ async function fetchContacts(query = "") {
                 }
 
                 // return the ones the user checked
-                const matchedFirst = findFirst && contact.firstName.toLowerCase();
-                const matchedLast = findLast && contact.lastName.toLowerCase();
-                const matchedEmail = findEmail && contact.email.toLowerCase();
-                const matchedPhone = findPhone && contact.phone.toLowerCase();
+                const matchedFirst = findFirst && contact.firstName.toLowerCase().includes(lowerCap);
+                const matchedLast = findLast && contact.lastName.toLowerCase().includes(lowerCap);
+                const matchedEmail = findEmail && contact.email.toLowerCase().includes(lowerCap);
+                const matchedPhone = findPhone && contact.phone.toLowerCase().includes(lowerCap);
 
                 return matchedFirst || matchedLast || matchedEmail || matchedPhone;
 
@@ -323,6 +323,7 @@ document.getElementById("editFormContact").addEventListener('submit', async (e) 
     const raw = document.getElementById('editPhone').value.replace(/\D/g, '');
 
     const payload = {
+
         id: document.getElementById("editId").value,
         firstName: document.getElementById("editFirst").value,
         lastName: document.getElementById("editLast").value,
