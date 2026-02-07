@@ -259,7 +259,7 @@ body{
 .my-contacts{
     flex: 2;
 
-    max-height: 55vh;
+    max-height: 58vh;
     overflow-y: auto;
     padding-right: 10px;
 }
