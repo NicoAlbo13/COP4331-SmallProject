@@ -259,7 +259,7 @@ body{
 .my-contacts{
     flex: 2;
 
-    max-height: 60vh;
+    max-height: 55vh;
     overflow-y: auto;
     padding-right: 10px;
 }
@@ -510,6 +510,7 @@ body{
 /*-----------trying animations here (if it works then add but if not...just remove it)-------------*/
 /*------------------might apply animatons for modal-------------*/
 
+/* used for the edit modal*/
 @keyframes slideFade{
     from {
         opacity: 0;
@@ -521,6 +522,7 @@ body{
     }
 }
 
+/*used for the delete modal*/
 @keyframes pop{
     0%{
         opacity: 0;
@@ -535,6 +537,7 @@ body{
     }
 }
 
+/*used for the contacts*/
 @keyframes fade{
     from {
         opacity: 0;
