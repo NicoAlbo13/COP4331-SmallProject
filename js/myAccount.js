@@ -349,7 +349,8 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
             this.reset();
 
             const resultShow = document.getElementById("addResult");
-            resultShow.className ="textSuccess";
+            resultShow.style.color = "#1b5e20";
+            resultShow.style.fontWeight = "bold";
             resultShow.innerHTML = "Contact successfully added!";
 
             fetchContacts(""); // refresh
