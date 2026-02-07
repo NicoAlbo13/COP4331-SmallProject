@@ -257,9 +257,9 @@ body{
 }
 
 .my-contacts{
-    flex: 1;
+    flex: 2;
 
-    
+    max-height: 60vh;
     overflow-y: auto;
     padding-right: 10px;
 }
