@@ -29,6 +29,7 @@ let contactToDelete = null;
 //------------------USER CHECK----------------------------------------------------------------------------------------------------
 
 // If no userID exists in session, bring user back to the login page
+/*
 if(!userID){
     window.location.href = "index.html";
 
@@ -37,7 +38,7 @@ else{
     document.getElementById("accountName").innerHTML = current_name || "User"; // default to user if name missing
 }
 
-
+*/
 
 
 
@@ -350,7 +351,6 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
             const resultShow = document.getElementById("addResult");
             resultShow.style.color = "#1b5e20";
-            resultShow.style.padding = "25px";
             resultShow.style.fontWeight = "bold";
             resultShow.innerHTML = "Contact successfully added!";
 

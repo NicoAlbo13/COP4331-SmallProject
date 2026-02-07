@@ -320,6 +320,7 @@ body{
     color: red;
 }
 
+
 .no-contacts{
     grid-column:  1 / -1;
     display: flex;
@@ -409,6 +410,8 @@ body{
     width: 90%;
     max-width: 400px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    animation: slideFade 0.4s ease-out;
     
 }
 
@@ -492,6 +495,8 @@ body{
     width: 90%;
     max-width: 400px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    animation: pop 0.3s ease-out;
     
 }
 
@@ -500,3 +505,30 @@ body{
     margin-bottom: 20px;
 }
 
+/*-----------trying animations here-------------*/
+/*------------------might apply animatons for modal-------------*/
+
+@keyframes slideFade{
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    70%{
+        transform: scale(1.02);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
