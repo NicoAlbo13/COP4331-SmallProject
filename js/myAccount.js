@@ -263,7 +263,7 @@ document.getElementById("deleteContactForm").addEventListener('submit', async (e
     }
 
     const payload = {
-        ID: id,
+        ID: contactToDelete,
         userID: userID
     };
 
