@@ -29,7 +29,7 @@ let contactToDelete = null;
 //------------------USER CHECK----------------------------------------------------------------------------------------------------
 
 // If no userID exists in session, bring user back to the login page
-/*
+
 if(!userID){
     window.location.href = "index.html";
 
@@ -38,7 +38,7 @@ else{
     document.getElementById("accountName").innerHTML = current_name || "User"; // default to user if name missing
 }
 
-*/
+
 
 
 
