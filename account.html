@@ -160,6 +160,27 @@
 
    <!-- add modal for the delete (ex: Are you sure you want to delete)-->
 
+   <div class="modal2" id="deleteContactsModal">
+        <div class="deleteContent">
+            <div class="deleteModalTop">
+                <h3>Are you sure you want to delete this contact?</h3>
+            </div>
+
+            <form id="deleteContactForm">
+
+                <div class="actionsModal">
+                    <button type="submit" class="UpdateContact">Yes</button>
+                    <button type="button" class="cancelBtn" onclick="closeModal()">No</button>
+                </div>
+
+                <span id="editResults"></span>
+
+            </form>
+
+        </div>
+   </div>
+
+
     <script src="./js/myAccount.js"></script>
     
 </body>

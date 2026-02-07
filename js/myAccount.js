@@ -1,16 +1,17 @@
-// retrieve user info saved during login
+// Retrieve user info saved during login
 const current_name = sessionStorage.getItem("name");
 const userID = sessionStorage.getItem("userID");
 
-// caching elements to avoid repeat lookups
+// Caching elements to avoid repeat lookups
 const searchInput = document.getElementById("search");
 const contacts = document.querySelector(".contacts");
 
-// option filter
+// Option filter
 const chooseFilter = document.querySelector(".filterOption");
 const menuFilter =  document.getElementById("filterMenu");
 
-
+// Temp hold a contact ID while the delete modal is open 
+let contactToDelete = null;
 
 // Debugging to check if info is being pulled
 
@@ -27,12 +28,13 @@ const menuFilter =  document.getElementById("filterMenu");
 
 //------------------USER CHECK----------------------------------------------------------------------------------------------------
 
+// If no userID exists in session, bring user back to the login page
 if(!userID){
     window.location.href = "index.html";
 
 }
 else{
-    document.getElementById("accountName").innerHTML = current_name || "User"
+    document.getElementById("accountName").innerHTML = current_name || "User"; // default to user if name missing
 }
 
 
@@ -41,13 +43,13 @@ else{
 
 
 
-//---------- format the phone number to show the required (555-555-5555)
+//---------- Format the phone number to show the required (555-555-5555)
 function formatPhone(phoneString){
 
-    // get rid of non nuumeric (saftey check basically)
+    // Get rid of non nuumeric (saftey check basically)
     const clean = ('' + phoneString).replace(/\D/g, ''); // get every char not a digit 
 
-    // check for length
+    // Check for length using regex
     const correctLength = clean.match(/^(\d{3})(\d{3})(\d{4})$/); // group the digits into groups that matches the format 555-555-5555
 
     if(correctLength){
@@ -55,6 +57,7 @@ function formatPhone(phoneString){
 
     }
 
+    // Return original string if it doesnt match 
     return phoneString;
 }
 
@@ -63,17 +66,18 @@ function formatPhone(phoneString){
 
 
 
-//---------------------modal close and open---------------------------------------------------------
+//---------------------modal close and open for edit---------------------------------------------------------
 
 function openEdit(contact){
-    // this will pop it up
+
+    // Will pop modal up
     const modal = document.getElementById("editContacts");
 
     if(modal){
         modal.style.display ="block";
     }
 
-    // id of the contact,first, last, email, and phone
+    // Id of the contact,first, last, email, and phone
     document.getElementById("editId").value = contact.ID;
     document.getElementById("editFirst").value = contact.firstName;
     document.getElementById("editLast").value = contact.lastName;
@@ -81,7 +85,7 @@ function openEdit(contact){
     document.getElementById("editPhone").value = contact.phone;
 }
 
-// this should close the modal since display will disappear
+// This should close the modal since display will disappear
 function closeModal(){
     const modal = document.getElementById("editContacts");
 
@@ -92,6 +96,33 @@ function closeModal(){
 
 
 
+//--------------------for the delete modal------------------------------------//
+
+function openDelete(id){
+
+    // Store ID globally for submit listener
+    contactToDelete = id;
+
+    const modal = document.getElementById("deleteContactsModal");
+
+    if(modal){
+        modal.style.display ="block";
+    }
+
+
+}
+
+
+function closeDelete(){
+    // Null so no id gets saved if user decides to leave (not deleted = clear stored ID)
+    contactToDelete = null;
+
+    const modal = document.getElementById("deleteContactsModal");
+
+    if(modal){
+        modal.style.display = "none";
+    }
+}
 
 
 
@@ -185,7 +216,7 @@ async function fetchContacts(query = "") {
                                 <img src = "assets/edit_icon.svg" class ="editIcon">
                             </button>
 
-                            <button class = "deleteBtn" onclick="deleteContact(${contact.ID})">
+                            <button class = "deleteBtn" onclick="openDelete(${contact.ID})">
                                 <img src = "assets/delete_icon.svg" class ="trash">
                             </button>
 
@@ -219,8 +250,18 @@ async function fetchContacts(query = "") {
 
 
 //-------------DELETE contacts----------------------------------------------------------------------------------------------------
-async function deleteContact(id) {
-    
+
+// Handle yes option on the delete modal
+document.getElementById("deleteContactForm").addEventListener('submit', async (e) => {
+   
+    // No reloading page
+    e.preventDefault();
+
+    // In case ID was not saved
+    if(!contactToDelete){
+        return;
+    }
+
     const payload = {
         ID: id,
         userID: userID
@@ -238,6 +279,9 @@ async function deleteContact(id) {
 
         if(result.error ===""){
 
+            // After success close the modal
+            closeDelete();
+
             // stays on search result after delete.
             fetchContacts(searchInput.value);
         }
@@ -248,7 +292,8 @@ async function deleteContact(id) {
     } catch (error) {
         console.error("Delete failed:", error);
     }
-}
+
+});
 
 
 
@@ -304,7 +349,7 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
             this.reset();
 
             const resultShow = document.getElementById("addResult");
-            resultShow.style.color = "green";
+            resultShow.style.color = "white";
             resultShow.innerHTML = "Contact successfully added!";
 
             fetchContacts(""); // refresh
