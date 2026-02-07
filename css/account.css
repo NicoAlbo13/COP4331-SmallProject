@@ -295,6 +295,8 @@ body{
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
+
+    animation: fade 0.3s ease-out both;
 }
 
 .contact-card:hover{
@@ -505,7 +507,7 @@ body{
     margin-bottom: 20px;
 }
 
-/*-----------trying animations here-------------*/
+/*-----------trying animations here (if it works then add but if not...just remove it)-------------*/
 /*------------------might apply animatons for modal-------------*/
 
 @keyframes slideFade{
@@ -530,5 +532,16 @@ body{
     100%{
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes fade{
+    from {
+        opacity: 0;
+        transform: translateY(15);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
