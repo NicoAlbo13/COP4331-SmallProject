@@ -296,7 +296,7 @@ body{
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 
-    animation: fade 0.3s ease-out both;
+    animation: fade 0.5s ease-out both;
 }
 
 .contact-card:hover{
@@ -538,7 +538,7 @@ body{
 @keyframes fade{
     from {
         opacity: 0;
-        transform: translateY(15);
+        transform: translateY(20px);
     }
     to{
         opacity: 1;
