@@ -350,6 +350,7 @@ document.getElementById('addContactsForm').addEventListener('submit', async func
 
             const resultShow = document.getElementById("addResult");
             resultShow.style.color = "#1b5e20";
+            resultShow.style.padding = "25px";
             resultShow.style.fontWeight = "bold";
             resultShow.innerHTML = "Contact successfully added!";
 
