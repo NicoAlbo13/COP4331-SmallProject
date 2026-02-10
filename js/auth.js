@@ -35,7 +35,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
             const resultShow = document.getElementById("loginResult");
             resultShow.style.color = "red";
-            resultShow.innerHTML = "Incorrect Login!";
+            resultShow.innerHTML = "Incorrect Username or Password!";
 
             // clear success after 3s
             setTimeout(() => {
