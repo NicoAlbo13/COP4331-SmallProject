@@ -1,5 +1,5 @@
 :root{
-    --base-color: #0288d1;
+    --base-color: #01579b;
     --base-color2: #0288d1;
     --accent-color: #e0f7fa;
 
@@ -309,7 +309,7 @@ body{
 #saveContact{
     width: 100%;
     padding: 10px;
-    background-color: #ff7043;
+    background-color: #C2410C;
     color: white;
     border: none;
     border-radius: 5px;

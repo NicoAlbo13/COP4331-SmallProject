@@ -213,12 +213,12 @@ async function fetchContacts(query = "") {
                         
                         <div class = "cardBtn">
 
-                            <button class = "editBtn" onclick='openEdit(${JSON.stringify(contact)})'>
-                                <img src = "assets/edit_icon.svg" class ="editIcon">
+                            <button aria-label="Edit contact" class = "editBtn" onclick='openEdit(${JSON.stringify(contact)})'>
+                                <img src = "assets/edit_icon.svg" class ="editIcon" aria-hidden="true">
                             </button>
 
-                            <button class = "deleteBtn" onclick="openDelete(${contact.ID})">
-                                <img src = "assets/delete_icon.svg" class ="trash">
+                            <button aria-label="Delete contact" class = "deleteBtn" onclick="openDelete(${contact.ID})">
+                                <img src = "assets/delete_icon.svg" class ="trash" aria-hidden="true">
                             </button>
 
                         </div>`;
