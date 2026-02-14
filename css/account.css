@@ -1,7 +1,7 @@
 :root{
-    --base-color: #85a8ff;
-    --base-color2: #f0f4ff;
-    --accent-color: #2c59c7;
+    --base-color: #0288d1;
+    --base-color2: #0288d1;
+    --accent-color: #e0f7fa;
 
 }
 
@@ -13,6 +13,7 @@ body{
     background-attachment: fixed;
 
     font-family: 'Quicksand', sans-serif;
+    
 
 }
 
@@ -212,7 +213,7 @@ body{
 }
 
 .circle{
-    background-color: var(--accent-color);
+    background-color: #ff7043;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -234,7 +235,7 @@ body{
     background: var(--base-color);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #eee;
+    border: 1px solid white;
 }
 
 #addContactsForm label{
@@ -242,11 +243,11 @@ body{
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
-    color: #444;
+    color: white;
 }
 
 #addContactsForm input{
-    background-color: white;
+    background-color: #e0f7fa;
     display: block;
     width: 100%;
     margin-bottom: 10px;
@@ -308,7 +309,7 @@ body{
 #saveContact{
     width: 100%;
     padding: 10px;
-    background-color: var(--accent-color);
+    background-color: #ff7043;
     color: white;
     border: none;
     border-radius: 5px;
@@ -405,7 +406,7 @@ body{
 }
 
 .editContent{
-    background-color: #fff;
+    background-color: #e0f7fa;
     margin: 10% auto;
     padding: 25px;
     border-radius: 12px;
@@ -453,7 +454,7 @@ body{
 
 .cancelBtn, .UpdateContact{
     padding: 10px;
-    color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -464,12 +465,12 @@ body{
 
 
 .UpdateContact{
-    background-color: var(--accent-color);
+    background-color: #90EE90;
 }
 
 
 .cancelBtn{
-    background-color: rgb(213, 42, 42);
+    background-color: #ff7043;
 }
 
 
@@ -547,4 +548,47 @@ body{
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* --- CUTE SHARK & DIVER FOR ACCOUNT PAGE --- */
+
+/* This adds the Big Shark to the top left of your container */
+.account-container::before {
+    content: "🦈";
+    font-size: 80px;
+    position: absolute;
+    top: -50px;
+    left: -40px;
+    z-index: 10;
+    animation: swim-account 5s ease-in-out infinite;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+/* This adds the Scuba Diver to the bottom right of your container */
+.account-container::after {
+    content: "🤿 🫧";
+    font-size: 50px;
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    z-index: 10;
+    animation: float-account 6s ease-in-out infinite;
+}
+
+/* Specific animations for the Account Page layout */
+@keyframes swim-account {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, 15px) rotate(10deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float-account {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(-15deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Ensure the container can hold the absolute-positioned shark */
+.account-container {
+    position: relative; 
 }
